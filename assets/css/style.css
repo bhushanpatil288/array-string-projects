@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+
+:root{
+  --primary-clr: #BDDAFF;
+  --inset-shadow: inset 0px 0px 5px 0px black !important;
+}
+
+*{
+  font-family: "M PLUS Rounded 1c", sans-serif;
+}
+
+
+body {
+  min-height: 300vh;
+}
+
+body.dark {
+  background-color: #222;
+}
+
+
+/* header start */
+
+.themeToggle:active{
+  box-shadow: var(--inset-shadow);
+}
+
+header .container{
+  box-shadow: var(--inset-shadow);
+}
+
+
+/* header end */

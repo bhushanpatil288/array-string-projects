@@ -1,0 +1,15 @@
+
+.active{
+  color: black;
+  background-color: var(--primary-clr);
+  box-shadow: var(--inset-shadow);
+}
+
+.hover:hover{
+  color: black;
+  background-color: var(--primary-clr);
+}
+
+.hover:active{
+  box-shadow: var(--inset-shadow);
+}

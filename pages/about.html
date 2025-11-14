@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- remix icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
+  <!-- tailwind -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- style css -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <!-- utility css -->
+  <link rel="stylesheet" href="../assets/css/utility.css">
+</head>
+<body class="text-white">
+  
+  <header class="sticky top-0 sm:top-5 z-10">
+    <!-- navbar start -->
+    <div class="container mx-auto px-10 py-2 bg-gradient-to-t from-neutral-600 to-neutral-300 backdrop-blur-xl rounded-lg shadow-lg">
+      <nav class="flex justify-between items-center"> 
+        <!-- logo -->
+        <div class="cursor-pointer">
+          Logo
+        </div>
+        <!-- nav links -->
+        <div class="hidden sm:block">
+          <ul class="flex gap-2 none">
+            <li class="hover cursor-pointer transition duration-200 px-2 rounded-lg px-2 py-1 rounded-lg">
+              <a href="../index.html">Home</a>
+            </li>
+            <li class="hover cursor-pointer transition duration-200 px-2 py-1 rounded-lg">
+              <a href="./projects.html">Projects</a>
+            </li>
+            <li class="active cursor-pointer transition duration-200 px-2 py-1 rounded-lg">
+              <a href="./about.html">About</a>
+            </li>
+            <li class="hover cursor-pointer transition duration-200 px-2 py-1 rounded-lg">
+              <a href="./contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <!-- hamburger menu -->
+        <div class="sm:hidden ham-menu relative">
+          <span><i class="ri-menu-line"></i></span>
+          <ul class="flex flex-col gap-2 none absolute bg-blue-500 p-3 w-50 rounded-b-lg top-10 -left-22 hidden">
+            <li class="active cursor-pointer transition duration-200 px-2 rounded-lg px-2 py-1 rounded-lg">Home</li>
+            <li class="hover cursor-pointer transition duration-200 px-2 py-1 rounded-lg">Projects</li>
+            <li class="hover cursor-pointer transition duration-200 px-2 py-1 rounded-lg">
+              <a href="./about.html">About</a>
+            </li>
+            <li class="hover cursor-pointer transition duration-200 px-2 py-1 rounded-lg">
+              <a href="./contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <!-- theme toggle -->
+        <div>
+          <span class="themeToggle hover cursor-pointer hover:text-black transition duration-500 flex px-3 py-2 rounded-full" title="toggle theme">
+            <i class="ri-moon-fill"></i>
+          </span>
+        </div>
+      </nav>
+    </div>
+    <!-- navbar end -->
+  </header>
+  <main></main>
+  <footer></footer>
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <!-- custom js -->
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>
