@@ -29,6 +29,11 @@ body.dark {
   min-height: 100vh;
 }
 
+.swal2-popup{
+  background-color: rgba(255, 255, 255, 0.707);
+  backdrop-filter: blur(10px);
+}
+
 
 /* header start */
 
@@ -37,3 +42,17 @@ body.dark {
 }
 
 /* header end */
+
+
+/* main start */
+
+.project-card{
+  padding: 20px;
+}
+
+.card-inner{
+  background-color: red;
+  padding: 20px;
+}
+
+/* main end */
