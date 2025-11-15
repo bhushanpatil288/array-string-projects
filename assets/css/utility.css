@@ -1,12 +1,12 @@
 
 .active{
-  color: black;
+  /* color: black; */
   background-color: var(--primary-clr);
   box-shadow: var(--inset-shadow);
 }
 
 .hover:hover{
-  color: black;
+  /* color: black; */
   background-color: var(--primary-clr);
 }
 

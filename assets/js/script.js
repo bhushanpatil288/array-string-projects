@@ -1,6 +1,27 @@
 $(document).ready(function(){
 
-  
+  const music = document.querySelector(".music")
+  const musicToggle = document.querySelector('#audioToggle')
+  if(music.paused){
+    musicToggle.querySelector("i").classList.remove('ri-volume-up-fill')
+    musicToggle.querySelector("i").classList.add('ri-volume-mute-fill')
+  } else {
+    musicToggle.querySelector("i").classList.remove('ri-volume-mute-fill')
+    musicToggle.querySelector("i").classList.add('ri-volume-up-fill')
+  }
+
+  $("#audioToggle").on('click', function(){
+    if(music.paused){
+      music.play()
+      musicToggle.querySelector("i").classList.add('ri-volume-up-fill')
+      musicToggle.querySelector("i").classList.remove('ri-volume-mute-fill')
+    } else {
+      music.pause()
+      console.log("test");
+      musicToggle.querySelector("i").classList.remove('ri-volume-up-fill')
+      musicToggle.querySelector("i").classList.add('ri-volume-mute-fill')
+    }
+  })
 
   // menu 
   $(".ham-menu").on("click", ()=>{

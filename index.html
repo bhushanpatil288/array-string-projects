@@ -14,10 +14,18 @@
   <link rel="stylesheet" href="./assets/css/utility.css">
 </head>
 <body class="text-white">
+  <!-- The video -->
+  <video autoplay muted loop id="myVideo" class="bg">
+    <source src="./assets/videos/bg.mp4" type="video/mp4">
+  </video>
+  <!-- rain start -->
+  <!-- <div class="rain front-row"></div>
+  <div class="rain back-row"></div> -->
+  <!-- rain end -->
   
   <header class="sticky top-0 sm:top-5 z-10">
     <!-- navbar start -->
-    <div class="container mx-auto px-10 py-2 bg-gradient-to-t from-neutral-600 to-neutral-300 backdrop-blur-xl rounded-lg shadow-lg">
+    <div class="container mx-auto px-10 py-2 bg-gradient-to-t from-neutral-600/20 to-neutral-300/20 backdrop-blur-xl rounded-lg shadow-lg">
       <nav class="flex justify-between items-center"> 
         <!-- logo -->
         <div class="cursor-pointer">
@@ -64,7 +72,22 @@
     </div>
     <!-- navbar end -->
   </header>
-  <main></main>
+
+  <main>
+    <div class="container mx-auto mt-10 px-10 py-2 py-2 bg-gradient-to-t from-neutral-600/20 to-neutral-300/20 backdrop-blur-xl rounded-lg shadow-lg">
+      <div class="rounded-lg p-5 flex flex-col gap-10 select-none justify-center items-center">
+        <h1 class="text-6xl text-center">String - Arrays Projects</h1>
+        <p class="text-center">Visit <a class="text-orange-200" href="./pages/projects.html">Projects</a> to view all the projects</p>
+        <button id="audioToggle" class="active rounded-full px-3 py-2 cursor-pointer hover:scale-102 active:scale-95"><i class="ri-volume-up-fill"></i></button>
+      </div>
+    </div>
+
+    <!-- rain sound -->
+    <audio loop autoplay class="music">
+      <source src="./assets/sound/bg-music.mp3" type="audio/mp3" />
+    </audio>
+  </main>
+  
   <footer></footer>
 
   <!-- jquery -->

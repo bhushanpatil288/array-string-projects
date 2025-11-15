@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
 
 :root{
-  --primary-clr: #BDDAFF;
+  --primary-clr: #914BB5;
   --inset-shadow: inset 0px 0px 5px 0px black !important;
 }
 
@@ -11,11 +11,22 @@
 
 
 body {
-  min-height: 300vh;
+  min-height: 200vh;
+  overflow-x: hidden;
+  background-image: url(../videos/bg.mp4);
 }
 
 body.dark {
-  background-color: #222;
+  background: linear-gradient(to bottom, #202020, #111119); 
+}
+
+.bg{
+  position: fixed;
+  object-fit: cover;
+  right: 0;
+  bottom: 0;
+  min-width: 100vw;
+  min-height: 100vh;
 }
 
 
@@ -24,10 +35,5 @@ body.dark {
 .themeToggle:active{
   box-shadow: var(--inset-shadow);
 }
-
-header .container{
-  box-shadow: var(--inset-shadow);
-}
-
 
 /* header end */
