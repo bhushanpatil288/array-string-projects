@@ -62,6 +62,12 @@ body.dark {
 .project-info{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-info>div{
+  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
