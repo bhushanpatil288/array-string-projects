@@ -51,8 +51,61 @@ body.dark {
 }
 
 .card-inner{
-  background-color: red;
+  overflow: hidden;
+  background-color: #6952aa3e;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
   padding: 20px;
+}
+
+.project-info{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.project-description{
+  text-align: center;
+}
+
+.tags{
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 8px
+}
+
+.tag{
+  background-color: white;
+  color: black;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 4px 6px;
+}
+
+.project-title{
+  font-weight: bold;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
+.visit-button{
+  text-align: center;
+  background-color: white;
+  color: #6A52AA;
+  padding: 8px 0px;
+  border-radius: 10px;
+  transition: all 0.3s linear;
+}
+.visit-button:hover{
+  background-color: rgba(255, 255, 255, 0.668);
+  color: #5335a5;
+}
+.visit-button:active{
+  transform: scale(0.95);
 }
 
 /* main end */

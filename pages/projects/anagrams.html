@@ -77,10 +77,11 @@
     <section>
       <div class="container mx-auto mt-10 px-10 py-2 py-2 bg-gradient-to-t from-neutral-600/20 to-neutral-300/20 backdrop-blur-xl rounded-lg shadow-lg">
         <div class="rounded-lg p-5 flex flex-col gap-10 select-none justify-center items-center">
-          <h1 class="text-6xl text-center capitalize">Palindrome Check</h1>        
+          <h1 class="text-6xl text-center capitalize">anagram Check</h1>        
           <form class="flex flex-col items-center gap-3">
-            <div>
-              <input class="input" type="text" placeholder="Enter the string">
+            <div class="flex flex-col gap-2">
+              <input id="string1" class="input" type="text" placeholder="Enter the string 1">
+              <input id="string2" class="input" type="text" placeholder="Enter the string 2">
             </div>
             <button type="submit" class="checkBtn">check</button>
           </form>
@@ -99,35 +100,48 @@
     $(document).ready(function(){
       $(".checkBtn").on('click', function(e){
         e.preventDefault();
-        const input = document.querySelector("input");
-        if (input.value.trim() === ''){
+        const input1 = document.querySelector("#string1");
+        const input2 = document.querySelector("#string2");
+
+        if (input1.value.trim() === '' || input2.value.trim() === ''){
+          console.log('test');
           Swal.fire({
-            title: 'Error!',
-            text: 'Please enter the string',
+            title: `Error`,
+            text: `Please Enter strings in both boxes`,
             icon: 'error',
             confirmButtonText: 'okay'
           })
-        } else {
-          const str = input.value.trim();
-          const reversedStr = (str.split('').reverse()).join('');
-          if (str !== reversedStr){
+          return;
+        }
+
+        let string1Splitted = input1.value.toLowerCase().split('');
+        let string2Splitted = input2.value.toLowerCase().split('');
+        string1Splitted.sort()
+        string2Splitted.sort()
+        
+        for(let i = 0; i < string1Splitted.length; i++){
+          if (string1Splitted[i] !== string2Splitted[i]){
             Swal.fire({
-            title: `${str} is not a palindrome string!`,
-            text: `${str}'s reverse is ${reversedStr}`,
-            icon: 'error',
-            confirmButtonText: 'okay'
-          })
-          document.querySelector("form").reset();
-          } else {
-            Swal.fire({
-            title: `${str} is a palindrome string!`,
-            text: `${str}'s reverse is ${reversedStr}`,
-            icon: 'success',
-            confirmButtonText: 'okay'
-          })
-          document.querySelector("form").reset();
+              title: `Not an anagram strings`,
+              icon: 'error',
+              confirmButtonText: 'okay'
+            })
+            input1.value = '';
+            input2.value = '';
+            return;
           }
         }
+
+        Swal.fire({
+          title: `${input1.value} & ${input2.value} are Anagrams`,
+          // text: `Both are anagram strings`,
+          icon: 'success',
+          confirmButtonText: 'okay'
+        })
+        input1.value = '';
+        input2.value = '';
+        
+       
       })
     })
   </script>
