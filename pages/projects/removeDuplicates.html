@@ -77,12 +77,12 @@
     <section>
       <div class="container mx-auto mt-10 px-10 py-2 py-2 bg-gradient-to-t from-neutral-600/20 to-neutral-300/20 backdrop-blur-xl rounded-lg shadow-lg">
         <div class="rounded-lg p-5 flex flex-col gap-10 select-none justify-center items-center">
-          <h1 class="text-6xl text-center capitalize">Extract Prime numbers</h1>        
+          <h1 class="text-6xl text-center capitalize">Remove Duplicates</h1>        
           <form class="flex flex-col items-center gap-3">
             <div>
-              <input class="input" type="text" placeholder="Ex. 2,3,63">
+              <input class="input" type="text" placeholder="Ex. 2,3,63, abc, @!,">
             </div>
-            <button type="submit" class="checkBtn">Extract</button>
+            <button type="submit" class="checkBtn">Remove Duplicates</button>
           </form>
         </div>
       </div>
@@ -103,42 +103,26 @@
         if (input.value.trim() === ''){
           Swal.fire({
             title: 'Error!',
-            text: 'Please enter comma seperated numbers',
+            text: 'Please enter comma seperated values',
             icon: 'error',
             confirmButtonText: 'okay'
           })
         } else {
-          // console.log(input.value.split(',').map(strNum=>Number(strNum)))
-          numArray = input.value.split(',').map(strNum=>Number(strNum));
-          if(numArray.includes(NaN)){
-             Swal.fire({
-              title: 'Error!',
-              text: 'Please enter Numbers only 😠!',
-              icon: 'error',
-              confirmButtonText: 'okay'
-            })
-            input.value = '';
-            return;
-          }
-          let primes = numArray.filter((num)=>{
-            if (num === 2){
-              return true;
-            }
-            if (num < 2 || num % 2 === 0){
-              return false;
-            }
+          elements = input.value.split(',');
+          console.log(elements);
 
-            let count = 0;
-            for(let i = 3; i <= Math.sqrt(num); i+=2){
-              if (num%i === 0){
-                return false;
-              }
+          let unique = elements.reduce((u, element)=>{
+            element = element.trim();
+            if (!u.includes(element)){
+              u.push(element)
             }
-            return true;
-          })
-          primes = primes.sort((x,y)=>x-y);
+            return u;
+          },[])
+
+          console.log(unique);
+          
           Swal.fire({
-            title: `Prime Numbers: ${primes}`,
+            title: `Unique elements: ${unique}`,
             icon: 'success',
             confirmButtonText: 'okay'
           })
