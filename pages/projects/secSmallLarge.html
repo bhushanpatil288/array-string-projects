@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- remix icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css" rel="stylesheet"/>
+  <!-- tailwind -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- sweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <!-- style css -->
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <!-- utility css -->
+  <link rel="stylesheet" href="../../assets/css/utility.css">
+</head>
+<body class="text-white">
+  <!-- The video -->
+  <video autoplay muted loop id="myVideo" class="bg">
+    <source src="../../assets/videos/bg.mp4" type="video/mp4">
+  </video>
+  <!-- rain start -->
+  <!-- <div class="rain front-row"></div>
+  <div class="rain back-row"></div> -->
+  <!-- rain end -->
+  
+  <header class="sticky top-0 sm:top-5 z-10">
+    <!-- navbar start -->
+    <div class="container mx-auto px-10 py-2 bg-gradient-to-t from-neutral-600/20 to-neutral-300/20 backdrop-blur-xl rounded-lg shadow-lg">
+      <nav class="flex justify-between items-center"> 
+        <!-- logo -->
+        <div class="cursor-pointer">
+          Logo
+        </div>
+        <!-- nav links -->
+        <div class="hidden sm:block">
+          <ul class="flex gap-2 none">
+            <li class="active cursor-pointer transition duration-200 px-2 rounded-lg px-2 py-1 rounded-lg">Home</li>
+            <li class="hover cursor-pointer transition duration-200 px-2 py-1 rounded-lg">
+              <a href="./pages/about.html" target="_blank">About</a>
+            </li>
+            <li class="hover cursor-pointer transition duration-200 px-2 py-1 rounded-lg">
+              <a href="./pages/contact.html" target="_blank">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <!-- hamburger menu -->
+        <div class="sm:hidden ham-menu relative">
+          <span><i class="ri-menu-line"></i></span>
+          <ul class="flex flex-col gap-2 none absolute bg-blue-500 p-3 w-50 rounded-b-lg top-10 -left-22 hidden">
+            <li class="active cursor-pointer transition duration-200 px-2 rounded-lg px-2 py-1 rounded-lg">Home</li>
+            <li class="hover cursor-pointer transition duration-200 px-2 py-1 rounded-lg">
+              <a href="./pages/projects.html">Projects</a>
+            </li>
+            <li class="hover cursor-pointer transition duration-200 px-2 py-1 rounded-lg">
+              <a href="./pages/about.html">About</a>
+            </li>
+            <li class="hover cursor-pointer transition duration-200 px-2 py-1 rounded-lg">
+              <a href="./pages/contact.html">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <!-- theme toggle -->
+        <div>
+          <span class="themeToggle hover cursor-pointer hover:text-black transition duration-500 flex px-3 py-2 rounded-full" title="toggle theme">
+            <i class="ri-moon-fill"></i>
+          </span>
+        </div>
+      </nav>
+    </div>
+    <!-- navbar end -->
+  </header>
+
+  <main>
+    <!-- hero section -->
+    <section>
+      <div class="container mx-auto mt-10 px-10 py-2 py-2 bg-gradient-to-t from-neutral-600/20 to-neutral-300/20 backdrop-blur-xl rounded-lg shadow-lg">
+        <div class="rounded-lg p-5 flex flex-col gap-10 select-none justify-center items-center">
+          <h1 class="text-6xl text-center capitalize">find second largest and second smallest number</h1>        
+          <form class="flex flex-col items-center gap-3">
+            <div>
+              <input class="input" type="text" placeholder="Ex. 2,3,63">
+            </div>
+            <button type="submit" class="checkBtn">Find</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <footer></footer>
+
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  <!-- custom js -->
+  <!-- <script src="../../assets/js/script.js"></script> -->
+  <script>
+    $(document).ready(function(){
+      $(".checkBtn").on('click', function(e){
+        e.preventDefault();
+        const input = document.querySelector("input");
+        if (input.value.trim() === ''){
+          Swal.fire({
+            title: 'Error!',
+            text: 'Please enter the number',
+            icon: 'error',
+            confirmButtonText: 'okay'
+          })
+        } else {
+          // console.log(input.value.split(',').map(strNum=>Number(strNum)))
+          numArray = input.value.split(',').map(strNum=>Number(strNum));
+          if(numArray.includes(NaN)){
+             Swal.fire({
+              title: 'Error!',
+              text: 'Please enter Numbers only 😠!',
+              icon: 'error',
+              confirmButtonText: 'okay'
+            })
+            input.value = '';
+            return;
+          }
+          numArray = numArray.sort((x,y)=>x-y)
+          // console.log(numArray);
+          secLarge = numArray[numArray.length-2];
+          secSmall = numArray[1];
+          Swal.fire({
+            title: `Second smallest: ${secSmall}, Second largest: ${secLarge}`,
+            text: `Sorted numbers : [ ${numArray} ]`,
+            icon: 'success',
+            confirmButtonText: 'okay'
+          })
+          input.value = '';
+        }
+      })
+    })
+  </script>
+</body>
+</html>
